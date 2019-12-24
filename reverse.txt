@@ -1,0 +1,22 @@
+package henilrev;
+
+import java.util.Scanner;
+
+public class henil {
+	public static void main(String [] args){
+		String name="henil";
+		String rev="";
+		int count =0;
+		 	for (int i= name.length()-1;i>=0;i--) 
+					{
+		 				char c=name.charAt(i);
+						rev=rev+name.charAt(i);
+						if(c=='a' || c=='e' ||c=='i' ||c=='o' || c=='u')
+							{
+								count++;
+							}
+					}
+		System.out.println(rev);
+		System.out.println(count);
+	}
+}
