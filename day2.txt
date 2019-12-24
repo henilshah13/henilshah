@@ -1,0 +1,1250 @@
+Microsoft Windows [Version 10.0.16299.64]
+(c) 2017 Microsoft Corporation. All rights reserved.
+
+C:\Users\lab365>sql plus
+'sql' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\lab365>sqlplus
+
+SQL*Plus: Release 11.2.0.1.0 Production on Mon Dec 23 20:13:14 2019
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+Enter user-name: scott
+Enter password:
+
+Connected to:
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+BONUS                          TABLE
+DEPT                           TABLE
+EMP                            TABLE
+SALGRADE                       TABLE
+
+SQL> select timestamp from dual;
+select timestamp from dual
+       *
+ERROR at line 1:
+ORA-00904: "TIMESTAMP": invalid identifier
+
+
+SQL> select systimestamp from dual;
+
+SYSTIMESTAMP
+---------------------------------------------------------------------------
+23-DEC-19 08.14.11.220000 PM -08:00
+
+SQL> select trim('h' from 'helloh') from dual;
+
+TRIM
+----
+ello
+
+SQL> select trim('h' from 'hhelloh') from dual;
+
+TRIM
+----
+ello
+
+SQL> select trim('h' from 'hhelhhloh') from dual;
+
+TRIM('
+------
+elhhlo
+
+SQL> select trim('h' from 'hhhelhhlohhh') from dual;
+
+TRIM('
+------
+elhhlo
+
+SQL> select trim('h' from 'hihhelhhlohhh') from dual;
+
+TRIM('H'F
+---------
+ihhelhhlo
+
+SQL> select substr('helooworld',1,5) from dual;
+
+SUBST
+-----
+heloo
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select substr('helooworld',1,5) from dual
+SQL> //
+
+SUBST
+-----
+heloo
+
+SQL> select substr('helooworld',1,8) from dual;
+
+SUBSTR('
+--------
+heloowor
+
+SQL> select substr('helooworld',2,8) from dual;
+
+SUBSTR('
+--------
+elooworl
+
+SQL> select substr('helooworld',4,8) from dual;
+
+SUBSTR(
+-------
+ooworld
+
+SQL> select substr('helooworldxgfdsfr',4,8) from dual;
+
+SUBSTR('
+--------
+ooworldx
+
+SQL> select replace('helohoworld','h','i') from dual;
+
+REPLACE('HE
+-----------
+ieloioworld
+
+SQL> select length('helohoworld') from dual;
+
+LENGTH('HELOHOWORLD')
+---------------------
+                   11
+
+SQL> select instr('helohoworld','l') from dual;
+
+INSTR('HELOHOWORLD','L')
+------------------------
+                       3
+
+SQL> select instr('helohworld','lo') from dual;
+
+INSTR('HELOHWORLD','LO')
+------------------------
+                       3
+
+SQL> select initcap('helohworld') from dual;
+
+INITCAP('H
+----------
+Helohworld
+
+SQL> select tochar(sysdate,'dd-mm-yyyy') from dual;
+select tochar(sysdate,'dd-mm-yyyy') from dual
+       *
+ERROR at line 1:
+ORA-00904: "TOCHAR": invalid identifier
+
+
+SQL> select to_char(sysdate,'dd-mm-yyyy') from dual;
+
+TO_CHAR(SY
+----------
+23-12-2019
+
+SQL> select to_char(sysdate,'fmDdspth','dd-mm-year') from dual;
+select to_char(sysdate,'fmDdspth','dd-mm-year') from dual
+                                                     *
+ERROR at line 1:
+ORA-12702: invalid NLS parameter string used in SQL function
+
+
+SQL> select to_char(sysdate,'fmDdspth' \) from dual;
+select to_char(sysdate,'fmDdspth' \) from dual
+                                  *
+ERROR at line 1:
+ORA-00911: invalid character
+
+
+SQL> select round(45.36,-2) from dual;
+
+ROUND(45.36,-2)
+---------------
+              0
+
+SQL> select round(45.36,-1) from dual;
+
+ROUND(45.36,-1)
+---------------
+             50
+
+SQL> select round(45.36,-3) from dual;
+
+ROUND(45.36,-3)
+---------------
+              0
+
+SQL> select round(45.86,-2) from dual;
+
+ROUND(45.86,-2)
+---------------
+              0
+
+SQL> select round(45.86,-1) from dual;
+
+ROUND(45.86,-1)
+---------------
+             50
+
+SQL> select round(43.86,-1) from dual;
+
+ROUND(43.86,-1)
+---------------
+             40
+
+SQL> select round(343.86,-1) from dual;
+
+ROUND(343.86,-1)
+----------------
+             340
+
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800
+        20
+
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300
+        30
+
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7566 JONES      MANAGER         7839 02-APR-81       2975
+        20
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400
+        30
+
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450
+        10
+
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000
+        20
+
+      7839 KING       PRESIDENT            17-NOV-81       5000
+        10
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0
+        30
+
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100
+        20
+
+      7900 JAMES      CLERK           7698 03-DEC-81        950
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7902 FORD       ANALYST         7566 03-DEC-81       3000
+        20
+
+      7934 MILLER     CLERK           7782 23-JAN-82       1300
+        10
+
+
+14 rows selected.
+
+SQL> select comm from emp;
+
+      COMM
+----------
+
+       300
+       500
+
+      1400
+
+
+
+
+         0
+
+
+      COMM
+----------
+
+
+
+
+14 rows selected.
+
+SQL> select comm,val(to_char(comm),'novalue') from emp;
+select comm,val(to_char(comm),'novalue') from emp
+            *
+ERROR at line 1:
+ORA-00904: "VAL": invalid identifier
+
+
+SQL> select comm,nvl(to_char(comm),'novalue') from emp;
+
+      COMM NVL(TO_CHAR(COMM),'NOVALUE')
+---------- ----------------------------------------
+           novalue
+       300 300
+       500 500
+           novalue
+      1400 1400
+           novalue
+           novalue
+           novalue
+           novalue
+         0 0
+           novalue
+
+      COMM NVL(TO_CHAR(COMM),'NOVALUE')
+---------- ----------------------------------------
+           novalue
+           novalue
+           novalue
+
+14 rows selected.
+
+SQL> select comm,nvl2(to_char(comm),'value' ,'novalue') from emp;
+
+      COMM NVL2(TO
+---------- -------
+           novalue
+       300 value
+       500 value
+           novalue
+      1400 value
+           novalue
+           novalue
+           novalue
+           novalue
+         0 value
+           novalue
+
+      COMM NVL2(TO
+---------- -------
+           novalue
+           novalue
+           novalue
+
+14 rows selected.
+
+SQL> select nullif(20,30) from  emp;
+
+NULLIF(20,30)
+-------------
+           20
+           20
+           20
+           20
+           20
+           20
+           20
+           20
+           20
+           20
+           20
+
+NULLIF(20,30)
+-------------
+           20
+           20
+           20
+
+14 rows selected.
+
+SQL> select nullif(30,30) from  emp;
+
+NULLIF(30,30)
+-------------
+
+
+
+
+
+
+
+
+
+
+
+
+NULLIF(30,30)
+-------------
+
+
+
+
+14 rows selected.
+
+SQL> select * from  emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800
+        20
+
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300
+        30
+
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7566 JONES      MANAGER         7839 02-APR-81       2975
+        20
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400
+        30
+
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450
+        10
+
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000
+        20
+
+      7839 KING       PRESIDENT            17-NOV-81       5000
+        10
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0
+        30
+
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100
+        20
+
+      7900 JAMES      CLERK           7698 03-DEC-81        950
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7902 FORD       ANALYST         7566 03-DEC-81       3000
+        20
+
+      7934 MILLER     CLERK           7782 23-JAN-82       1300
+        10
+
+
+14 rows selected.
+
+SQL> select * from  emp where comm is not null or sal>1500 order by deptno desc,sal;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500
+        30
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400
+        30
+
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300
+        30
+
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850
+        30
+
+      7566 JONES      MANAGER         7839 02-APR-81       2975
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000
+        20
+
+      7902 FORD       ANALYST         7566 03-DEC-81       3000
+        20
+
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450
+        10
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7839 KING       PRESIDENT            17-NOV-81       5000
+        10
+
+
+10 rows selected.
+
+SQL> select * from  emp where comm is not null or sal>1500 order by deptno desc,sal;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500
+        30
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400
+        30
+
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300
+        30
+
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850
+        30
+
+      7566 JONES      MANAGER         7839 02-APR-81       2975
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000
+        20
+
+      7902 FORD       ANALYST         7566 03-DEC-81       3000
+        20
+
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450
+        10
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7839 KING       PRESIDENT            17-NOV-81       5000
+        10
+
+
+10 rows selected.
+
+SQL> set pagesize 120
+SQL> set line size 120/
+SP2-0268: linesize option not a valid number
+SQL> set line size 120
+SP2-0268: linesize option not a valid number
+SQL> /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500
+        30
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400
+        30
+
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0
+        30
+
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300
+        30
+
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850
+        30
+
+      7566 JONES      MANAGER         7839 02-APR-81       2975
+        20
+
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000
+        20
+
+      7902 FORD       ANALYST         7566 03-DEC-81       3000
+        20
+
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450
+        10
+
+      7839 KING       PRESIDENT            17-NOV-81       5000
+        10
+
+
+10 rows selected.
+
+SQL> set linesize 120
+SQL> /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+
+10 rows selected.
+
+SQL> select * from  emp where comm is not null or sal>1500 order by deptno desc,sal;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+
+10 rows selected.
+
+SQL>
+SQL> desc user_constraints;
+ Name                                                              Null?    Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ OWNER                                                                      VARCHAR2(30)
+ CONSTRAINT_NAME                                                   NOT NULL VARCHAR2(30)
+ CONSTRAINT_TYPE                                                            VARCHAR2(1)
+ TABLE_NAME                                                        NOT NULL VARCHAR2(30)
+ SEARCH_CONDITION                                                           LONG
+ R_OWNER                                                                    VARCHAR2(30)
+ R_CONSTRAINT_NAME                                                          VARCHAR2(30)
+ DELETE_RULE                                                                VARCHAR2(9)
+ STATUS                                                                     VARCHAR2(8)
+ DEFERRABLE                                                                 VARCHAR2(14)
+ DEFERRED                                                                   VARCHAR2(9)
+ VALIDATED                                                                  VARCHAR2(13)
+ GENERATED                                                                  VARCHAR2(14)
+ BAD                                                                        VARCHAR2(3)
+ RELY                                                                       VARCHAR2(4)
+ LAST_CHANGE                                                                DATE
+ INDEX_OWNER                                                                VARCHAR2(30)
+ INDEX_NAME                                                                 VARCHAR2(30)
+ INVALID                                                                    VARCHAR2(7)
+ VIEW_RELATED                                                               VARCHAR2(14)
+
+SQL> desc user_cons_columns;
+ Name                                                              Null?    Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ OWNER                                                             NOT NULL VARCHAR2(30)
+ CONSTRAINT_NAME                                                   NOT NULL VARCHAR2(30)
+ TABLE_NAME                                                        NOT NULL VARCHAR2(30)
+ COLUMN_NAME                                                                VARCHAR2(4000)
+ POSITION                                                                   NUMBER
+
+SQL> select  *  from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+14 rows selected.
+
+SQL> select  *  from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+14 rows selected.
+
+SQL> 8
+SP2-0226: Invalid line number
+SQL> *
+SP2-0042: unknown command "*" - rest of line ignored.
+SQL> * **************************************/
+SP2-0734: unknown command beginning "* ********..." - rest of line ignored.
+SQL> * ************************************\n
+SP2-0734: unknown command beginning "* ********..." - rest of line ignored.
+SQL> * ************************************\n
+SP2-0734: unknown command beginning "* ********..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select  *  from emp
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select  *  from emp
+SQL>
+SQL> /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+14 rows selected.
+
+SQL> /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+14 rows selected.
+
+SQL> select ename ,deptno from emp cross join dept;
+select ename ,deptno from emp cross join dept
+              *
+ERROR at line 1:
+ORA-00918: column ambiguously defined
+
+
+SQL> select ename, deptno from emp cross join dept;
+select ename, deptno from emp cross join dept
+              *
+ERROR at line 1:
+ORA-00918: column ambiguously defined
+
+
+SQL> select ename, dname from emp cross join dept;
+
+ENAME      DNAME
+---------- --------------
+SMITH      ACCOUNTING
+ALLEN      ACCOUNTING
+WARD       ACCOUNTING
+JONES      ACCOUNTING
+MARTIN     ACCOUNTING
+BLAKE      ACCOUNTING
+CLARK      ACCOUNTING
+SCOTT      ACCOUNTING
+KING       ACCOUNTING
+TURNER     ACCOUNTING
+ADAMS      ACCOUNTING
+JAMES      ACCOUNTING
+FORD       ACCOUNTING
+MILLER     ACCOUNTING
+SMITH      RESEARCH
+ALLEN      RESEARCH
+WARD       RESEARCH
+JONES      RESEARCH
+MARTIN     RESEARCH
+BLAKE      RESEARCH
+CLARK      RESEARCH
+SCOTT      RESEARCH
+KING       RESEARCH
+TURNER     RESEARCH
+ADAMS      RESEARCH
+JAMES      RESEARCH
+FORD       RESEARCH
+MILLER     RESEARCH
+SMITH      SALES
+ALLEN      SALES
+WARD       SALES
+JONES      SALES
+MARTIN     SALES
+BLAKE      SALES
+CLARK      SALES
+SCOTT      SALES
+KING       SALES
+TURNER     SALES
+ADAMS      SALES
+JAMES      SALES
+FORD       SALES
+MILLER     SALES
+SMITH      OPERATIONS
+ALLEN      OPERATIONS
+WARD       OPERATIONS
+JONES      OPERATIONS
+MARTIN     OPERATIONS
+BLAKE      OPERATIONS
+CLARK      OPERATIONS
+SCOTT      OPERATIONS
+KING       OPERATIONS
+TURNER     OPERATIONS
+ADAMS      OPERATIONS
+JAMES      OPERATIONS
+FORD       OPERATIONS
+MILLER     OPERATIONS
+
+56 rows selected.
+
+SQL> select e.employee_id,e.last_name,d.location_id from employees e join departments d using(departments_id);
+select e.employee_id,e.last_name,d.location_id from employees e join departments d using(departments_id)
+                                                                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select e.employee_id,e.last_name,d.location_id from emp e join departments d using(departments_id);
+select e.employee_id,e.last_name,d.location_id from emp e join departments d using(departments_id)
+                                                               *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select e.empl_id,e.last_name,d.location_id from emp e join dept d using(dept_id);
+select e.empl_id,e.last_name,d.location_id from emp e join dept d using(dept_id)
+                                                                        *
+ERROR at line 1:
+ORA-00904: "D"."DEPT_ID": invalid identifier
+
+
+SQL> select e.empl_id,e.last_name,d.location_id from emp e join dept d using (dept_id);
+select e.empl_id,e.last_name,d.location_id from emp e join dept d using (dept_id)
+                                                                         *
+ERROR at line 1:
+ORA-00904: "D"."DEPT_ID": invalid identifier
+
+
+SQL> select e.ename,e.deptno,d.deptno,d.dname from  emp e join dept d on(e.deotno=d.deptno);
+select e.ename,e.deptno,d.deptno,d.dname from  emp e join dept d on(e.deotno=d.deptno)
+                                                                    *
+ERROR at line 1:
+ORA-00904: "E"."DEOTNO": invalid identifier
+
+
+SQL> select e.ename,e.deptno,d.deptno,d.dname from  emp e join dept d on(e.deptno=d.deptno);
+
+ENAME          DEPTNO     DEPTNO DNAME
+---------- ---------- ---------- --------------
+CLARK              10         10 ACCOUNTING
+KING               10         10 ACCOUNTING
+MILLER             10         10 ACCOUNTING
+JONES              20         20 RESEARCH
+FORD               20         20 RESEARCH
+ADAMS              20         20 RESEARCH
+SMITH              20         20 RESEARCH
+SCOTT              20         20 RESEARCH
+WARD               30         30 SALES
+TURNER             30         30 SALES
+ALLEN              30         30 SALES
+JAMES              30         30 SALES
+BLAKE              30         30 SALES
+MARTIN             30         30 SALES
+
+14 rows selected.
+
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+14 rows selected.
+
+SQL> select * fromdept;
+select * fromdept
+         *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select * from dept;
+
+    DEPTNO DNAME          LOC
+---------- -------------- -------------
+        10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS
+        30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON
+
+SQL> select e.ename,e.deptno,d.deptno from emp e left outer join dept d on (e.deptno=d.deptno);
+
+ENAME          DEPTNO     DEPTNO
+---------- ---------- ----------
+SMITH              20         20
+ALLEN              30         30
+WARD               30         30
+JONES              20         20
+MARTIN             30         30
+BLAKE              30         30
+CLARK              10         10
+SCOTT              20         20
+KING               10         10
+TURNER             30         30
+ADAMS              20         20
+JAMES              30         30
+FORD               20         20
+MILLER             10         10
+
+14 rows selected.
+
+SQL> select e.ename,e.deptno,d.deptno from emp e right outer join dept d on (e.deptno=d.deptno);
+
+ENAME          DEPTNO     DEPTNO
+---------- ---------- ----------
+SMITH              20         20
+ALLEN              30         30
+WARD               30         30
+JONES              20         20
+MARTIN             30         30
+BLAKE              30         30
+CLARK              10         10
+SCOTT              20         20
+KING               10         10
+TURNER             30         30
+ADAMS              20         20
+JAMES              30         30
+FORD               20         20
+MILLER             10         10
+                              40
+
+15 rows selected.
+
+SQL> select e.ename,e.deptno,d.deptno from dept d right outer join emp e on (e.deptno=d.deptno);
+
+ENAME          DEPTNO     DEPTNO
+---------- ---------- ----------
+SMITH              20         20
+ALLEN              30         30
+WARD               30         30
+JONES              20         20
+MARTIN             30         30
+BLAKE              30         30
+CLARK              10         10
+SCOTT              20         20
+KING               10         10
+TURNER             30         30
+ADAMS              20         20
+JAMES              30         30
+FORD               20         20
+MILLER             10         10
+
+14 rows selected.
+
+SQL> select e.ename,e.deptno,d.deptno from dept d left outer join emp e on (e.deptno=d.deptno);
+
+ENAME          DEPTNO     DEPTNO
+---------- ---------- ----------
+SMITH              20         20
+ALLEN              30         30
+WARD               30         30
+JONES              20         20
+MARTIN             30         30
+BLAKE              30         30
+CLARK              10         10
+SCOTT              20         20
+KING               10         10
+TURNER             30         30
+ADAMS              20         20
+JAMES              30         30
+FORD               20         20
+MILLER             10         10
+                              40
+
+15 rows selected.
+
+SQL> select e.ename,e.deptno,d.deptno from dept d left outer join emp e on (e.deptno=d.deptno);
+
+ENAME          DEPTNO     DEPTNO
+---------- ---------- ----------
+SMITH              20         20
+ALLEN              30         30
+WARD               30         30
+JONES              20         20
+MARTIN             30         30
+BLAKE              30         30
+CLARK              10         10
+SCOTT              20         20
+KING               10         10
+TURNER             30         30
+ADAMS              20         20
+JAMES              30         30
+FORD               20         20
+MILLER             10         10
+                              40
+
+15 rows selected.
+
+SQL>
+SQL> select avg(nvl(comm,0)),avg(comm) from emo;
+select avg(nvl(comm,0)),avg(comm) from emo
+                                       *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select avg(nvl(comm,0)),avg(comm) from emp;
+
+AVG(NVL(COMM,0))  AVG(COMM)
+---------------- ----------
+      157.142857        550
+
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+14 rows selected.
+
+SQL> select count(distinct job) from emp;
+
+COUNT(DISTINCTJOB)
+------------------
+                 5
+
+SQL> select sum(sal) from emp;
+
+  SUM(SAL)
+----------
+     29025
+
+SQL> select min(sal),max(sal),avg(sal) from emp;
+
+  MIN(SAL)   MAX(SAL)   AVG(SAL)
+---------- ---------- ----------
+       800       5000 2073.21429
+
+SQL> select max(sal) from emp where job='SALESMAN';
+
+  MAX(SAL)
+----------
+      1600
+
+SQL> select avg(sal) from emp where dptno=20;
+select avg(sal) from emp where dptno=20
+                               *
+ERROR at line 1:
+ORA-00904: "DPTNO": invalid identifier
+
+
+SQL> select avg(sal) from emp where deptno=20;
+
+  AVG(SAL)
+----------
+      2175
+
+SQL> select count(distinct deptno) from emp;
+
+COUNT(DISTINCTDEPTNO)
+---------------------
+                    3
+
+SQL> select count(ename) from emp where deptno=10;
+
+COUNT(ENAME)
+------------
+           3
+
+SQL> select count(job) from emp where job="MANAGER";
+select count(job) from emp where job="MANAGER"
+                                     *
+ERROR at line 1:
+ORA-00904: "MANAGER": invalid identifier
+
+
+SQL> select count(job) from emp where job like "MANAGER";
+select count(job) from emp where job like "MANAGER"
+                                          *
+ERROR at line 1:
+ORA-00904: "MANAGER": invalid identifier
+
+
+SQL> select count(ename) from emp where job like "MANAGER";
+select count(ename) from emp where job like "MANAGER"
+                                            *
+ERROR at line 1:
+ORA-00904: "MANAGER": invalid identifier
+
+
+SQL> select count(job) from emp where job like 'MANAGER';
+
+COUNT(JOB)
+----------
+         3
+
+SQL> select count(*),deptno from emp group by deptno;
+
+  COUNT(*)     DEPTNO
+---------- ----------
+         6         30
+         5         20
+         3         10
+
+SQL> select distinct empno from emp;
+
+     EMPNO
+----------
+      7369
+      7499
+      7521
+      7566
+      7654
+      7698
+      7782
+      7788
+      7839
+      7844
+      7876
+      7900
+      7902
+      7934
+
+14 rows selected.
+
+SQL> select distinct empno from emp where job='MANAGER';
+
+     EMPNO
+----------
+      7566
+      7698
+      7782
+
+SQL> select * from emp m, emp n where m.mgr=n.empid;
+select * from emp m, emp n where m.mgr=n.empid
+                                       *
+ERROR at line 1:
+ORA-00904: "N"."EMPID": invalid identifier
+
+
+SQL> select * from emp m where m.mgr=m.empid;
+select * from emp m where m.mgr=m.empid
+                                *
+ERROR at line 1:
+ORA-00904: "M"."EMPID": invalid identifier
+
+
+SQL> Disconnected from Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+C:\Users\lab365>
