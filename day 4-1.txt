@@ -1,0 +1,38 @@
+SQL> ed
+Wrote file afiedt.buf
+
+  1  declare
+  2  v_name varchar2(10);
+  3  begin
+  4  v_name:='henil';
+  5  dbms_output.put_line('name is'||v_name);
+  6* end;
+SQL> set serveroutput on
+SQL> /
+name ishenil
+
+PL/SQL procedure successfully completed.
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  declare
+  2     numb1 number := &numb1;
+  3     numb2 number := &numb2;
+  4     numb3 number;
+  5  begin
+  6     numb3:=numb1+numb2;
+  7     dbms_output.put_line(numb3);
+  8* end;
+SQL> set serveroutput on
+SQL> /
+Enter value for numb1: 2
+old   2:        numb1 number := &numb1;
+new   2:        numb1 number := 2;
+Enter value for numb2: 3
+old   3:        numb2 number := &numb2;
+new   3:        numb2 number := 3;
+5
+
+PL/SQL procedure successfully completed.
