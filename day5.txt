@@ -1,0 +1,74 @@
+SQL> ed
+Wrote file afiedt.buf
+
+  1  declare
+  2     e1 exception;
+  3  begin
+  4     delete from dept where deptno = &v_deptno;
+  5     if sql%notfound then
+  6     raise e1;
+  7     end if;
+  8  exception
+  9     when e1 then
+ 10     dbms_output.put_line('no data found');
+ 11     dbms_output.put_line(sqlerrm);
+ 12* end;
+SQL>
+SQL> /
+Enter value for v_deptno: 1000
+old   4:        delete from dept where deptno = &v_deptno;
+new   4:        delete from dept where deptno = 1000;
+
+PL/SQL procedure successfully completed.
+
+SQL> set serveroutput on
+SQL> /
+Enter value for v_deptno: 1000
+old   4:        delete from dept where deptno = &v_deptno;
+new   4:        delete from dept where deptno = 1000;
+no data found
+User-Defined Exception
+
+PL/SQL procedure successfully completed.
+
+
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  begin
+  2     delete from dept where deptno = &v_deptno;
+  3     raise_application_error(-20001,'no data found');
+  4     dbms_output.put_line(sqlerrm);
+  5* end;
+SQL> /
+Enter value for v_deptno: 10000
+old   2:        delete from dept where deptno = &v_deptno;
+new   2:        delete from dept where deptno = 10000;
+begin
+*
+ERROR at line 1:
+ORA-20001: no data found
+ORA-06512: at line 3
+
+
+SQL> create or replace procedure pro1(a number , b number , c out number) is
+  2  begin
+  3  c:=a+b;
+  4  end;
+  5  /
+
+Procedure created.
+
+SQL> variable x number
+SQL> execute pro1(10,20,:x);
+
+PL/SQL procedure successfully completed.
+
+SQL> print :x;
+
+         X
+----------
+        30
+
