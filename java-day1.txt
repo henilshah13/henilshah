@@ -1,0 +1,204 @@
+package demo;
+
+class student 
+{
+	int rollno;
+	String name;
+	
+void insert(int r, String n) 
+	{
+		rollno=r;
+		name=n;
+	}
+
+void display() {System.out.println(rollno+" "+name);}
+
+}
+
+public class Demo {
+	public static void main(String args[]) 
+	{
+		
+		student s1 = new student();
+		student s2 = new student();
+		s1.insert(11,"tom");
+		s2.insert(12,"harry");
+		s1.display();
+		s2.display();
+	}
+
+}
+
+output : 
+11 tom
+12 harry
+
+class calculation
+	{
+	int a , b;
+	calculation(int x , int y)
+		{
+			a=x;
+			b=y;
+		}
+	int sum()
+		{
+			return a+b;
+		}
+	}
+
+public class p1 {
+
+	public static void main(String[]args)
+		{
+			int n1,n2;
+			Scanner sc = new Scanner(System.in);
+			n1=sc.nextInt();
+			n2=sc.nextInt();
+			calculation ob1 = new calculation(n1,n2);
+			System.out.println("addition is : "+ob1.sum());
+		}
+	
+}
+
+output :
+6
+3
+addition is : 9
+
+
+
+package demo;
+
+public class p2 {
+
+	public static void main (String []args) 
+		{
+		for (int i=0;i<=5;i++) 
+			{
+			
+			for (int j=0;j<=i;j++) 
+				{
+				if(i%2==0) {System.out.print("*");}
+				else {System.out.print("+");}
+				}
+			System.out.println();
+			}
+		
+		
+		}
+}
+
+output :
+
+*
+++
+***
+++++
+*****
+++++++
+
+
+
+package demo;
+
+class demo1{
+	static int count = 0;
+	
+	demo1()
+	{
+		count++;
+		
+		
+	}
+	public void display() {System.out.println(count);}
+}
+public class p3 {
+	public static void main(String [] args)
+		{
+			demo1 d1 = new demo1();
+			demo1 d2 = new demo1();
+			demo1 d3 = new demo1();
+			demo1 d4 = new demo1();
+			d4.display();
+		}
+}
+
+output:
+4
+
+
+package demo;
+
+import java.util.Scanner;
+
+public class p4 {
+	public static void main(String[]args)
+		{
+			Scanner sc = new Scanner(System.in);
+			int a= sc.nextInt();
+			int b= sc.nextInt();
+			int c= sc.nextInt();
+			
+			System.out.println("a="+a);
+			System.out.println("b="+b);
+			System.out.println("c="+c);
+			
+			if(a<b&&a<c) {System.out.println("a is smallest");}
+			else if(b<a&&b<c) {System.out.println("b is smallest");}
+			else {System.out.println("c is smallest");}
+			
+		}
+}
+
+
+output:
+5
+6
+9
+a=5
+b=6
+c=9
+a is smallest
+
+
+package demo;
+
+import java.util.Scanner;
+
+public class fact {
+	public static void main(String[]args) 
+		{
+			Scanner sc = new Scanner(System.in);
+			int num=sc.nextInt();
+			int f=1;
+			
+			for (int i=1;i<=num;i++)
+				{
+				f=f*i;
+				}
+			System.out.println(f);
+		}
+
+}
+
+output :
+5
+120
+
+
+package demo;
+import java.util.Date;
+
+public class p5 {
+	public static void main(String[]args) 
+	{
+		Date date = new Date();
+	      System.out.println(date.toString());
+	}
+}
+
+output:
+Mon Dec 30 03:16:37 PST 2019
+
+
