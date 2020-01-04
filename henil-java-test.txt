@@ -1,0 +1,166 @@
+Q1. Create a class called Point with data members to represent the x and y
+coordinates and has a function to display the coordinates. Derive a class called
+Circle from Point with a data member to represent the radius. Have a function
+called area() to calculate the area of the circle and also display the coordinates.
+Derive the class called Cylinder from Circle with a data member to represent
+the height of the cylinder. Have a function called volume() to calculate the
+volume of the cylinder.
+
+package exam;
+
+import java.util.*;
+
+class Point {
+	int x,y;
+	double pi =3.142;
+	Point(int a, int b){
+		x = a;
+		y = b;
+	}
+	public void display() {
+		System.out.println("x="+x);
+		System.out.println("y="+y);
+	}
+}
+
+class Circle extends Point {
+	double radius;
+	int x,y;
+	Circle(int a, int b) {
+		super(a, b);
+		radius = Math.sqrt((a*a)+(b*b));
+		x=a;
+		y=b;
+	}
+	
+	double area() {
+		return pi*radius*radius;
+	}
+}
+
+class Cylinder extends Circle {
+	int height ;
+	double area ;
+	Scanner sc = new Scanner(System.in);
+	Cylinder(int a, int b) {
+		super(a, b);
+		System.out.println("height of the cylinder");
+		height = sc.nextInt();
+	}
+	double volume() {
+		return pi*(radius*radius)*height;
+	}
+	
+}
+
+public class demo {
+	public static void main(String args[]) {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter x :");
+		int x = sc.nextInt();
+		System.out.println("Enter y :");
+		int y = sc.nextInt();
+		
+		Circle circle = new Circle(x,y);
+		System.out.println("area of the circle "+circle.area());
+		Cylinder cylinder = new Cylinder(10,10);
+		System.out.println("volume of the cylinder "+cylinder.volume());
+	}
+}
+
+output:
+Enter x :
+3
+Enter y :
+4
+area of the circle 78.55
+height of the cylinder
+5
+volume of the cylinder 3142.0000000000005
+
+
+
+Q2. Create a class to hold information about books.
+
+package exam;
+
+import java.util.Scanner;
+
+class book{
+	String title;
+	String author;
+	double cost;
+	int  no_of_books;
+	
+	book(String title,String author,double cost,int  no_of_books){
+		this.title=title;
+		this.author=author;
+		this.cost=cost;
+		this.no_of_books= no_of_books;
+	}
+void display() {
+	System.out.println("title :"+title+"author :"+author+"cost :"+cost);
+}	
+}
+
+
+public class demo1 {
+public static void main(String[]args) {
+	Scanner sc = new Scanner(System.in);
+	System.out.println("enter data of books");
+	book x[] = new book[3];
+	
+	for (int i = 0; i < 3; i++) {
+		System.out.print("Enter title: ");
+		String title = sc.next();
+		System.out.print("Enter author: ");
+		String author = sc.next();
+		System.out.print("Enter cost: ");
+		double cost = sc.nextDouble();
+		System.out.print("Enter no of books: ");
+		int no_of_books = sc.nextInt();
+		x[i] = new book(title, author, cost, no_of_books);
+	}
+
+	System.out.print("\nEnter title to search: ");
+	String title = sc.next();
+	System.out.print("Enter no of books required: ");
+	int no_of_books = sc.nextInt();
+
+	boolean found = false;
+	for (int i = 0; i < 3; i++) {
+		if (title.equals(x[i].title) && (no_of_books <= x[i].no_of_books)) {
+			found = true;
+			x[i].display();
+			System.out.println("Books are sufficient.");
+			System.out.println("Total cost of books: " + (x[i].cost * no_of_books));
+		}
+	}
+
+	if (found == false) {
+		System.out.println("No books found.");
+	}
+}
+}
+
+output:
+enter data of books
+Enter title: walter
+Enter author: tom
+Enter cost: 900
+Enter no of books: 10
+Enter title: wilaam
+Enter author: jerry
+Enter cost: 900
+Enter no of books: 80
+Enter title: qwerty
+Enter author: sam
+Enter cost: 600
+Enter no of books: 10
+
+Enter title to search: walter
+Enter no of books required: 10
+title :walterauthor :tomcost :900.0
+Books are sufficient.
+Total cost of books: 9000.0
