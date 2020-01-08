@@ -1,0 +1,41 @@
+ Volume in drive C has no label.
+ Volume Serial Number is 5612-E546
+
+ Directory of C:\pythontraining\bin
+
+01/07/2020  10:06 PM    <DIR>          .
+01/07/2020  10:06 PM    <DIR>          ..
+01/07/2020  10:06 PM             2,149 cmd_out.txt
+01/07/2020  08:16 PM               583 comprehensons.py
+01/06/2020  03:15 AM               299 dictionary_ex.py
+01/07/2020  12:44 AM               166 eval_ex.py
+01/07/2020  01:37 AM             1,026 file_ops.py
+01/06/2020  10:46 PM             1,197 for_ex.py
+01/07/2020  08:26 PM               265 funcs_1.py
+01/07/2020  08:39 PM               173 funcs_2.py
+01/07/2020  08:51 PM               358 funcs_3.py
+01/07/2020  09:37 PM               386 funcs_4.py
+01/07/2020  10:06 PM               570 funcs_5.py
+01/07/2020  10:06 PM               134 func_6.py
+01/06/2020  09:37 PM             1,008 if_ex.py
+01/06/2020  01:47 AM               744 list_ex.py
+01/07/2020  07:53 PM               523 log_report.csv
+01/07/2020  07:53 PM               502 log_report.txt
+01/05/2020  10:26 PM               516 num_ex.py
+01/07/2020  01:50 AM                34 out1.txt
+01/07/2020  01:50 AM                18 out2.csv
+01/07/2020  02:26 AM               886 process_log.py
+01/06/2020  03:30 AM               301 set_ex.py
+01/06/2020  12:54 AM             2,017 str_ex.py
+01/05/2020  09:38 PM                26 test.py
+01/06/2020  02:55 AM               233 tuple_ex.py
+01/06/2020  11:21 PM               754 while_ex.py
+              25 File(s)         14,868 bytes
+               2 Dir(s)  855,599,120,384 bytes free
+ip,					date,		pics,			url
+123.123.123.123\,26/Apr/2000\,wpaper.gif\,http://www.jafsoft.com/asctortf/
+123.123.123.123\,26/Apr/2000\,wpaper.gif\,http://search.netscape.com/Computers/Data_Formats/Document/Text/RTF
+123.123.123.123\,26/Apr/2000\,5star2000.gif\,http://www.jafsoft.com/asctortf/
+123.123.123.123\,26/Apr/2000\,5star.gif\,http://www.jafsoft.com/asctortf/
+123.123.123.123\,26/Apr/2000\,a2hlogo.jpg\,http://www.jafsoft.com/asctortf/
+123.123.123.123\,26/Apr/2000\,a2hlogo.jpg\,http://www.jafsoft.com/asctortf/
