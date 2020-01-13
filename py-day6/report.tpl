@@ -1,0 +1,30 @@
+<html>
+<head>
+<title> welcome to log report </title>
+</head>
+
+<body>
+<h1> log report </h1>
+<table border='1' bgcolor='green'>
+%for ip,dt,im,url in res:
+%if im=='no image':
+<tr bgcolor='yellow'>
+<td>    {{ip}}    </td>
+<td>    {{dt}}    </td>
+<td bgcolor='red'>    {{im}}    </td>
+<td>    {{url}}   </td>
+</tr>
+%else:
+<tr>
+<td>    {{ip}}    </td>
+<td>    {{dt}}    </td>
+<td>    {{im}}    </td>
+<td>    {{url}}   </td>
+</tr>
+
+%end
+%end
+
+</table>
+</body>
+</html>
